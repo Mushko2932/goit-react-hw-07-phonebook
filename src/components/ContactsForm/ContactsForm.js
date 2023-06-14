@@ -11,7 +11,7 @@ const ContactShema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
-  number: Yup.string()
+  phone: Yup.string()
     .min(2, 'Too Short!')
     .max(13, 'Too Long!')
     .required('Required'),

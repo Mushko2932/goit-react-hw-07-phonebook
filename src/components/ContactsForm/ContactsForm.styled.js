@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 import { Form as FormikForm, Field as FormikField } from 'formik';
 
 export const Form = styled(FormikForm)`
@@ -8,10 +8,10 @@ export const Form = styled(FormikForm)`
 `;
 
 export const FormLabel = styled.label`
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 340px;
 `;
 
 export const Field = styled(FormikField)`
@@ -21,7 +21,7 @@ export const Field = styled(FormikField)`
 `;
 
 export const FormBtn = styled.button`
-  width: 240px;
+  width: 340px;
   height: 30px;
   cursor: pointer;
   background-color: grey;
