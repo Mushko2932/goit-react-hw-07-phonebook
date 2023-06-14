@@ -21,7 +21,7 @@ export const ContactsForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContactsList);
 
-  const handleSabmit = newContact => {
+  const handleSubmit = newContact => {
     if (
       contacts.filter(
         contact =>
@@ -39,14 +39,15 @@ export const ContactsForm = () => {
       initialValues={{ name: '', phone: '' }}
       validationSchema={ContactShema}
       onSubmit={(values, actions) => {
-        handleSabmit({ ...values });
+        handleSubmit({ ...values });
         actions.resetForm();
       }}
     >
       <Form>
-        <FormLabel>
+        <FormLabel htmlFor="name">
           Name
           <Field
+            type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"

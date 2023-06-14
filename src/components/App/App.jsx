@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/operations';
 import { selectError, selectIsLoading } from 'redux/selectors';
 import { Loader } from 'components/Loader/Loader';
 import { ContactsForm } from 'components/ContactsForm/ContactsForm';
@@ -14,7 +14,7 @@ export const App = () => {
   const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(getContacts());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
