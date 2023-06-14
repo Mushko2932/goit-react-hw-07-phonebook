@@ -3,8 +3,8 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 import { Form, FormLabel, FormBtn, Field } from './ContactsForm.styled';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactSlice';
+import { selectContactsList } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 
 const ContactShema = Yup.object().shape({
   name: Yup.string()
@@ -19,7 +19,7 @@ const ContactShema = Yup.object().shape({
 
 export const ContactsForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContactsList);
 
   const handleSabmit = newContact => {
     if (
@@ -36,7 +36,7 @@ export const ContactsForm = () => {
   };
   return (
     <Formik
-      initialValues={{ name: '', number: '' }}
+      initialValues={{ name: '', phone: '' }}
       validationSchema={ContactShema}
       onSubmit={(values, actions) => {
         handleSabmit({ ...values });
@@ -53,11 +53,11 @@ export const ContactsForm = () => {
             required
           />
         </FormLabel>
-        <FormLabel>
+        <FormLabel htmlFor="phone">
           Number
           <Field
             type="tel"
-            name="number"
+            name="phone"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required

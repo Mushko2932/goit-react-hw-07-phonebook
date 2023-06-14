@@ -20,7 +20,7 @@ const addContactFullfieldReducer = (state, action) => {
   state.isLoading = false;
   state.error = null;
   state.items.push(action.payload);
-  const index = state.itemsfindIndex(
+  const index = state.items.findIndex(
     contact => contact.id === action.payload.id
   );
   state.items.splice(index, 1);
@@ -29,7 +29,7 @@ const addContactFullfieldReducer = (state, action) => {
 const deleteContactFullfieldReducer = (state, action) => {
   state.isLoading = false;
   state.error = null;
-  const index = state.itemsfindIndex(
+  const index = state.items.findIndex(
     contact => contact.id === action.payload.id
   );
   state.items.splice(index, 1);
